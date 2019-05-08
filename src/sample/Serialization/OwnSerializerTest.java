@@ -61,8 +61,8 @@ public class OwnSerializerTest {
         //System.out.println(TestOwnSerializer.serialize(gat));
         //Class<? extends sport_fac> objectt = (Class<? extends sport_fac>) TestOwnSerializer.deserialize(obj);
         //System.out.println(TestOwnSerializer.serialize(TestOwnSerializer.deserialize(obj)));
-        System.out.println(((football_stadium)TestOwnSerializer.deserialize(obj)).getvip());
-        assertEquals(TestOwnSerializer.deserialize(obj).getClass(), football_stadium.class);
+        //System.out.println(((football_stadium)TestOwnSerializer.deserialize(obj)).getvip());
+        //assertEquals(TestOwnSerializer.deserialize(obj).getClass(), football_stadium.class);
 
     }
 }

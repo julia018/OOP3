@@ -22,16 +22,11 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.stage.Window;
-import sample.Serialization.BinarySerializer;
-import sample.Serialization.OwnSerializer;
-import sample.Serialization.my_des;
+import sample.Serialization.*;
 import sample.buildings.*;
 
 import java.io.*;
 import java.lang.reflect.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.*;
 
 
@@ -71,129 +66,55 @@ public class Controller {
     @FXML
     private Button openButton;
 
-    @FXML
-    private Button ownButton;
-
-    @FXML
-    void own_serialize(ActionEvent event) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, ClassNotFoundException {
-        OwnSerializer OWN = new OwnSerializer();
-        String res = OWN.serialize(obj_table.getSelectionModel().getSelectedItem().getObject());
-        sport_fac r = (sport_fac) OWN.deserialize(res);
-        Obj o = new Obj(r.getname(), r.getClass().getAnnotation(RusName.class).r_name(), r, r.getClass());
-        obj_list.add(o);
+    private SerializerFactory configureSerializer(String choosenFileName) {
+        SerializerFactory returnSerializer = null;
+        if(choosenFileName.endsWith(".ser")) {
+            returnSerializer = new BinarySerializer();
+        } else if(choosenFileName.endsWith(".json")) {
+            returnSerializer = new JSONSerializer();
+        } else if(choosenFileName.endsWith(".txt")) {
+            returnSerializer = new OwnSerializer();
+        } else {
+            throw new RuntimeException("Error file extension!");
+        }
+        return returnSerializer;
     }
 
     @FXML
     void open(ActionEvent event) {
-        /*BinarySerializer binSerzer = new BinarySerializer();
+        SerializerFactory choosenSerializer = null;
         obj_list.clear();
-        Path path = Paths.get("Objectsavefile.ser");
-        obj_list = binSerzer.read(path);
-        if(obj_list.isEmpty()) System.out.println("List is empty");
-        else obj_table.setItems(obj_list);*/
-        obj_list.clear();
-        /*FileChooser chooser = new FileChooser();
+        FileChooser chooser = new FileChooser();
+        FileChooser.ExtensionFilter fileExtensions =
+                new FileChooser.ExtensionFilter(
+                        "Bin, json, own", "*.ser", "*.json", "*.txt");
+        chooser.getExtensionFilters().add(fileExtensions);
         File file = chooser.showOpenDialog(new Stage());
+        System.out.println(file.getName());
         if (file != null) {
-            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
-                List<Obj> loadedEdges = (List<Obj>) in.readObject() ;
-                obj_list.setAll(loadedEdges);
-            } catch (Exception exc) {
-                exc.printStackTrace();
-            }
-        }*/
-        BufferedReader bufferedReader = null;
-        try {
-            bufferedReader = new BufferedReader(new FileReader("Output.json"));
-        } catch (FileNotFoundException e) {
-            System.out.println("Not file here!");
+            choosenSerializer = configureSerializer(file.getName());
+            obj_list = choosenSerializer.deserialize(file);
+            obj_table.setItems(obj_list);
         }
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapter(Class.class, new BinarySerializer.ClassTypeAdapter())
-                .registerTypeAdapter(Object.class, new BinarySerializer.ClassTypeAd())
-                .setPrettyPrinting()
-                .create();
-
-        JsonParser parser = new JsonParser();
-        JsonElement jsonElement = parser.parse(bufferedReader);
-        JsonArray arr = jsonElement.getAsJsonArray();
-        arr.forEach(item -> {
-            JsonObject obj = (JsonObject) item;
-            JsonObject quoteid = obj.get("object").getAsJsonObject();
-
-            String dateEntered = obj.get("cl_name").getAsString();
-            try {
-                Class<?> cl = Class.forName(dateEntered);
-                Object message = gson.fromJson(quoteid, cl);
-                System.out.println(message.getClass());
-                Obj o = new Obj(((sport_fac) message).getname(), message.getClass().getAnnotation(RusName.class).r_name(), message, message.getClass());
-                obj_list.add(o);
-            } catch (ClassNotFoundException e) {
-                System.out.println("Cant found classss");
-            }
-
-        });
-
-        //Type type = new TypeToken<List<Obj>>() {}.getType();
-        //List<Obj> records = gson.fromJson(arr, type);
-        //obj_list.setAll(records);
-        /*JsonObject rootObject = jsonElement.getAsJsonObject(); // чтение главного объекта
-        String message = rootObject.get("message").getAsString(); // получить поле "message" как строку
-        JsonObject childObject = rootObject.getAsJsonObject("place"); // получить объект Place
-        String place = childObject.get("name").getAsString(); // получить поле "name"
-        System.out.println(message + " " + place); // напечатает "Hi World!"*/
-
-
-        //obj_list = gson.fr
-        //obj_list.setAll(gson.fromJson(bufferedReader, new TypeToken<ArrayList<Obj>>() {}.getType()));
-        //ObservableList<Obj> logs = gson.fromJson(bufferedReader, FXCollections.observableArrayList);
-        /*for (Obj o: logs) {
-            //System.out.println(o.get);
-            Object s = o.getCl_name().cast(LinkedTreeMap.class.cast(o.getObject()).get(0));
-            System.out.println(s.getClass());
-            System.out.println(LinkedTreeMap.class.cast(o.getObject()).keySet());
-            //String name = t.get("name").toString();
-            Object.class.cast(o.getObject());
-            System.out.println(o.getObject().getClass());
-            //o.getCl_name().class.cast(o.getObject().ge);
-        }*/
-
-        /*my_des deserializer = new my_des("cl_name");
-        deserializer.registerBarnType("football_stadium", football_stadium.class);
-        Gson gson = new GsonBuilder()
-                .registerTypeAdapter(sport_fac.class, deserializer)
-                .create();
-
-        List<sport_fac> outList = gson.fromJson(bufferedReader, new TypeToken<List<sport_fac>>(){}.getType());*/
-
-        /*JsonParser parser = new JsonParser();
-        JsonObject array = parser.parse(bufferedReader).getAsJsonObject();
-        //JsonObject one = parser.parse(array.get(0)).getAsJsonObject();
-        Object message = gson.fromJson(array, football_stadium.class);
-        obj_list.clear();
-        Obj o = new Obj(((football_stadium) message).getname(),message.getClass().getAnnotation(RusName.class).r_name(),message,message.getClass());
-        obj_list.add(o);
-        //Object one = gson.fromJson(array.get(0).getAsJsonObject(), Obj.class);
-        //Obj[] list = gson.fromJson(bufferedReader, Obj[].class);
-        //obj_list.setAll(logs);
-        System.out.println(message.getClass());
-        //obj_list.setAll(logs);*/
 
     }
 
-    public static <T> List<T> stringToArray(BufferedReader s, Class<T[]> clazz) {
-        T[] arr = new Gson().fromJson(s, clazz);
-        return Arrays.asList(arr); //or return Arrays.asList(new Gson().fromJson(s, clazz)); for a one-liner
-    }
 
     @FXML
     void save(ActionEvent event) {
-        for (Obj o : obj_list
-        ) {
-            o.cl_name.cast(o.getObject());
+        SerializerFactory choosenSerializer = null;
+        FileChooser chooser = new FileChooser();
+        FileChooser.ExtensionFilter fileExtensions =
+                new FileChooser.ExtensionFilter(
+                        "Bin, json, own", "*.ser", "*.json", "*.txt");
+        chooser.getExtensionFilters().add(fileExtensions);
+        File file = chooser.showOpenDialog(new Stage());
+        System.out.println(file.getName());
+        if (file != null) {
+            choosenSerializer = configureSerializer(file.getName());
+            choosenSerializer.serialize(obj_list, file);
         }
-        BinarySerializer binSerzer = new BinarySerializer();
-        binSerzer.serialize(obj_list);
+
     }
 
     @FXML

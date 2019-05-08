@@ -1,8 +1,13 @@
 package sample.Serialization;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import sample.Composition;
+import sample.Obj;
+import sample.RusName;
 import sample.buildings.sport_fac;
 
+import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -12,12 +17,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
-public class OwnSerializer {
+public class OwnSerializer implements SerializerFactory{
 
-    public OwnSerializer() {
-    }
 
-    public String serialize(Object o) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    public String serializeObject(Object o) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         //classNam.cast(0);
         String resultString = "{";
         if (o == null) {
@@ -43,7 +46,7 @@ public class OwnSerializer {
                 Method getCompObject = o.getClass().getMethod("get" + objectField.getName());
                 Object compObject = getCompObject.invoke(o);//get comp obj-> res
                 compClass.cast(compObject);
-                resultString += serialize(compObject);
+                resultString += serializeObject(compObject);
             } else {
                 for (Method objectMethod : mainMethodList) {
                     if (objectMethod.getName().equals("get" + objectField.getName())) {
@@ -58,7 +61,7 @@ public class OwnSerializer {
             return resultString;
         }
 
-        public Object deserialize(String objectInString) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        public Object deserializeObject(String objectInString) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
             int i = 1;
             Object resultObject = null;
             String mainClassName = "";
@@ -77,7 +80,6 @@ public class OwnSerializer {
                 Collections.addAll(methodList, a.getDeclaredMethods());
                 a = a.getSuperclass();
             }
-            //Collections.addAll(methodList, mainClass.getDeclaredMethods());
             while (i != (objectInString.length()-1)) {
                 String key = "";
                 String value = "";
@@ -173,5 +175,58 @@ public class OwnSerializer {
 
     void write(){
 
+    }
+
+    @Override
+    public void serialize(ObservableList<Obj> objectList, File fileForSave) {
+        try {
+            FileWriter writer = new FileWriter(fileForSave, false);
+            OwnSerializer own = new OwnSerializer();
+            for(Obj o: objectList) {
+                try {
+                    String serObj = own.serializeObject(o.getObject());
+                    writer.write(serObj);
+                    writer.append("\r\n");
+                    writer.flush();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public ObservableList<Obj> deserialize(File fileForOpen) {
+        ObservableList<Obj> obj_list = FXCollections.observableArrayList();
+        try{
+            FileInputStream fstream = new FileInputStream(fileForOpen);
+            BufferedReader br = new BufferedReader(new InputStreamReader(fstream));
+            String strLine;
+            while ((strLine = br.readLine()) != null){
+                try {
+                    sport_fac obj = (sport_fac) deserializeObject(strLine);
+                    obj_list.add(new Obj(obj.getname(), obj.getClass().getAnnotation(RusName.class).r_name(), obj, obj.getClass()));
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                } catch (NoSuchMethodException e) {
+                    e.printStackTrace();
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
+                } catch (InstantiationException e) {
+                    e.printStackTrace();
+                }
+            }
+        }catch (IOException e){
+            System.out.println("Ошибка открытия файла!");
+        }
+        return obj_list;
     }
 }

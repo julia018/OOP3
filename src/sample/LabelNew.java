@@ -19,10 +19,6 @@ public class LabelNew extends Label implements Control {
     }
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 61f113a1e46c374e8d0dc31832ad3fc23fb00101
     public Class<? extends sport_fac> getCl() {
         return cl;
     }

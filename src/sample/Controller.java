@@ -1,11 +1,8 @@
 package sample;
 
-<<<<<<< HEAD
 import com.google.gson.*;
 import com.google.gson.internal.LinkedTreeMap;
 import com.google.gson.reflect.TypeToken;
-=======
->>>>>>> 61f113a1e46c374e8d0dc31832ad3fc23fb00101
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -27,30 +24,16 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.Window;
 import sample.Serialization.BinarySerializer;
-<<<<<<< HEAD
 import sample.Serialization.OwnSerializer;
 import sample.Serialization.my_des;
 import sample.buildings.*;
-=======
-import sample.buildings.*;
-
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.*;
->>>>>>> 61f113a1e46c374e8d0dc31832ad3fc23fb00101
 
 import java.io.*;
 import java.lang.reflect.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.*;
+
 
 public class Controller {
     private HashMap<String, String> types_map;
@@ -82,7 +65,6 @@ public class Controller {
     @FXML
     private TableColumn<Obj, Void> col_actions;
 
-<<<<<<< HEAD
     @FXML
     private Button saveButton;
 
@@ -238,66 +220,6 @@ public class Controller {
             private final Button deleteButton = new Button("delete");
             private final HBox pane = new HBox(editButton, deleteButton);
 
-=======
-    @FXML
-    private Button saveButton;
-
-    @FXML
-    private Button openButton;
-
-    @FXML
-    void open(ActionEvent event) {
-        /*BinarySerializer binSerzer = new BinarySerializer();
-        obj_list.clear();
-        Path path = Paths.get("Objectsavefile.ser");
-        obj_list = binSerzer.read(path);
-        if(obj_list.isEmpty()) System.out.println("List is empty");
-        else obj_table.setItems(obj_list);*/
-        obj_list.clear();
-        FileChooser chooser = new FileChooser();
-        File file = chooser.showOpenDialog(new Stage());
-        if (file != null) {
-            try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(file))) {
-                List<Obj> loadedEdges = (List<Obj>) in.readObject() ;
-                obj_list.setAll(loadedEdges);
-            } catch (Exception exc) {
-                exc.printStackTrace();
-            }
-        }
-
-    }
-
-    @FXML
-    void save(ActionEvent event) {
-        BinarySerializer binSerzer = new BinarySerializer();
-        binSerzer.serialize(obj_list);
-    }
-
-    @FXML
-    void initialize() {
-
-        obj_list.addListener((ListChangeListener<Obj>) c -> obj_table.setItems(obj_list));
-
-        cmb_class.valueProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
-                if (observable.getValue() == null) {
-                    create_btn.setDisable(true);
-                } else create_btn.setDisable(false);
-            }
-        });
-
-        types_map = new HashMap<>();
-        createHashMap(types_map, cmb_class);
-
-        col_obj.setCellValueFactory(new PropertyValueFactory<>("name"));
-        col_class.setCellValueFactory(new PropertyValueFactory<>("class_name"));
-        col_actions.setCellFactory(param -> new TableCell<Obj, Void>() {
-            private final Button editButton = new Button("edit");
-            private final Button deleteButton = new Button("delete");
-            private final HBox pane = new HBox(editButton, deleteButton);
-
->>>>>>> 61f113a1e46c374e8d0dc31832ad3fc23fb00101
             {
                 pane.setSpacing(BUTTONSPACING);
 
@@ -312,10 +234,7 @@ public class Controller {
 
                         String title = getTableView().getItems().get(getIndex()).getName();
                         Class clazz = getTableView().getItems().get(getIndex()).getCl_name();
-<<<<<<< HEAD
                         Object my_obj = getTableView().getItems().get(getIndex()).getObject();
-=======
->>>>>>> 61f113a1e46c374e8d0dc31832ad3fc23fb00101
                         ArrayList<Field> fieldList = new ArrayList<>();
                         Class i = clazz;
                         while (i != null && i != Object.class) {
@@ -699,16 +618,10 @@ public class Controller {
         newAthleteSt.setlight_type("natural");
         newAthleteSt.setname("Стад де Франс");
 
-<<<<<<< HEAD
         Obj itemAthlStadium = new Obj(newAthleteSt.getname(), "Легкоатлетический стадион", newAthleteSt, newAthleteSt.getClass());
         obj_list.add(itemAthlStadium);
 
 
-=======
-        Obj itemAthlStadium = new Obj(newAthleteSt.getname(), "Атлетический стадион", newAthleteSt, newAthleteSt.getClass());
-        obj_list.add(itemAthlStadium);
-
->>>>>>> 61f113a1e46c374e8d0dc31832ad3fc23fb00101
         //Бассейн
         pool swPool = new pool();
         swPool.setdes("natrium");

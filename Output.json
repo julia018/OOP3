@@ -1,6 +1,20 @@
 [
   {
     "object": {
+      "des": "natrium",
+      "dividers": false,
+      "location": "Кипр",
+      "capacity": 20000,
+      "fl_amount": 8,
+      "light_type": "synthetic",
+      "name": "Four Seasons"
+    },
+    "cl_name": "sample.buildings.pool",
+    "name": "Four Seasons",
+    "class_name": "Бассейн"
+  },
+  {
+    "object": {
       "team": "Спартак",
       "pl_field": {
         "gr_type": "natural",
@@ -26,32 +40,18 @@
   {
     "object": {
       "track_sector": {
-        "amount": "greater_five",
-        "tr_length": 100.0
+        "amount": "less2",
+        "tr_length": 0.0
       },
-      "pit": true,
-      "location": "Сен-Дени",
-      "capacity": 200000,
-      "fl_amount": 5,
-      "light_type": "natural",
-      "name": "Стад де Франс"
+      "pit": false,
+      "location": "",
+      "capacity": 0,
+      "fl_amount": 0,
+      "light_type": "synthetic",
+      "name": ""
     },
     "cl_name": "sample.buildings.athlete_stadium",
-    "name": "Стад де Франс",
+    "name": "",
     "class_name": "Легкоатлетический стадион"
-  },
-  {
-    "object": {
-      "des": "natrium",
-      "dividers": false,
-      "location": "Кипр",
-      "capacity": 20000,
-      "fl_amount": 8,
-      "light_type": "synthetic",
-      "name": "Four Seasons"
-    },
-    "cl_name": "sample.buildings.pool",
-    "name": "Four Seasons",
-    "class_name": "Бассейн"
   }
 ]

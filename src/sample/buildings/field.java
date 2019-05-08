@@ -6,11 +6,7 @@ import sample.RusName;
 import java.io.Serializable;
 
 @RusName(r_name = "Поле")
-<<<<<<< HEAD
 public class field implements Composition, Serializable {
-=======
-public class field implements Composition {
->>>>>>> 61f113a1e46c374e8d0dc31832ad3fc23fb00101
 
     @RusName(r_name = "Газон")
     private grass gr_type;

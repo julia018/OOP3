@@ -1,14 +1,11 @@
 package sample.Serialization;
 
-<<<<<<< HEAD
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-import com.sun.javafx.collections.MappingChange;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import sample.Obj;
 import sample.buildings.sport_fac;
-
 import java.io.*;
 import java.lang.reflect.Type;
 import java.nio.file.Files;
@@ -19,7 +16,6 @@ import java.util.List;
 import java.util.Map;
 
 public class BinarySerializer {
-
 
     public void serialize(ObservableList<Obj> objectList) {
         try (Writer writer = new FileWriter("Output.json")) {
@@ -42,22 +38,6 @@ public class BinarySerializer {
             System.out.println("Can't create json");
         }
         /*try {
-=======
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import sample.Obj;
-
-import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.List;
-
-public class BinarySerializer {
-
-    public  void serialize(ObservableList<Obj> objectList) {
-        try {
->>>>>>> 61f113a1e46c374e8d0dc31832ad3fc23fb00101
             // write object to file
             FileOutputStream fos = new FileOutputStream("Objectsavefile.ser");
             ObjectOutputStream oos = new ObjectOutputStream(fos);
@@ -68,7 +48,6 @@ public class BinarySerializer {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-<<<<<<< HEAD
         }*/
     }
 
@@ -102,20 +81,13 @@ public class BinarySerializer {
 
         }
 
-=======
-        }
->>>>>>> 61f113a1e46c374e8d0dc31832ad3fc23fb00101
     }
 
     public static ObservableList<Obj> read(Path file) {
         try {
             InputStream in = Files.newInputStream(file);
             ObjectInputStream ois = new ObjectInputStream(in);
-<<<<<<< HEAD
             List<Obj> list = (List<Obj>) ois.readObject();
-=======
-            List<Obj> list = (List<Obj>) ois.readObject() ;
->>>>>>> 61f113a1e46c374e8d0dc31832ad3fc23fb00101
 
             return FXCollections.observableList(list);
         } catch (ClassNotFoundException e) {

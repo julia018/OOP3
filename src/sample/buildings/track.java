@@ -6,11 +6,7 @@ import sample.RusName;
 import java.io.Serializable;
 
 @RusName(r_name = "Сектор трека")
-<<<<<<< HEAD
 public class track implements Composition, Serializable {
-=======
-public class track implements Composition {
->>>>>>> 61f113a1e46c374e8d0dc31832ad3fc23fb00101
 
 
     public void setamount(String am) {

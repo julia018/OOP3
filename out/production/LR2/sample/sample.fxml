@@ -15,23 +15,14 @@
       <Button fx:id="create_btn" layoutX="250.0" layoutY="23.0" mnemonicParsing="false" onAction="#create" text="Create" />
       <TableView fx:id="obj_table" layoutX="28.0" layoutY="120.0" prefHeight="276.0" prefWidth="432.0">
         <columns>
-<<<<<<< HEAD
-            <TableColumn fx:id="col_obj" prefWidth="136.0" text="Объект" />
-            <TableColumn fx:id="col_class" prefWidth="170.0" text="Класс" />
-            <TableColumn fx:id="col_actions" prefWidth="124.0" text="Действия" />
+            <TableColumn fx:id="col_obj" prefWidth="136.0" text="Объект"/>
+            <TableColumn fx:id="col_class" prefWidth="170.0" text="Класс"/>
+            <TableColumn fx:id="col_actions" prefWidth="124.0" text="Действия"/>
         </columns>
       </TableView>
-       <Button fx:id="saveButton" layoutX="380.0" layoutY="23.0" mnemonicParsing="false" onAction="#save" text="Save" />
-       <Button fx:id="openButton" layoutX="377.0" layoutY="60.0" mnemonicParsing="false" onAction="#open" text="Open" />
-      <Button fx:id="ownButton" layoutX="250.0" layoutY="73.0" mnemonicParsing="false" onAction="#own_serialize" text="own" />
-=======
-          <TableColumn fx:id="col_obj" prefWidth="136.0" text="Объект" />
-          <TableColumn fx:id="col_class" prefWidth="170.0" text="Класс" />
-            <TableColumn fx:id="col_actions" prefWidth="124.0" text="Действия" />
-        </columns>
-      </TableView>
-      <Button fx:id="saveButton" layoutX="380.0" layoutY="23.0" mnemonicParsing="false" onAction="#save" text="Save" />
-      <Button fx:id="openButton" layoutX="377.0" layoutY="60.0" mnemonicParsing="false" onAction="#open" text="Open" />
->>>>>>> 61f113a1e46c374e8d0dc31832ad3fc23fb00101
+       <Button fx:id="saveButton" layoutX="380.0" layoutY="23.0" mnemonicParsing="false" onAction="#save" text="Save"/>
+       <Button fx:id="openButton" layoutX="377.0" layoutY="60.0" mnemonicParsing="false" onAction="#open" text="Open"/>
+       <Button fx:id="ownButton" layoutX="250.0" layoutY="73.0" mnemonicParsing="false" onAction="#own_serialize"
+               text="own"/>
    </children>
 </AnchorPane>

@@ -25,23 +25,6 @@
   },
   {
     "object": {
-      "track_sector": {
-        "amount": "greater_five",
-        "tr_length": 100.0
-      },
-      "pit": true,
-      "location": "Сен-Дени",
-      "capacity": 200000,
-      "fl_amount": 5,
-      "light_type": "natural",
-      "name": "Стад де Франс"
-    },
-    "cl_name": "sample.buildings.athlete_stadium",
-    "name": "Стад де Франс",
-    "class_name": "Легкоатлетический стадион"
-  },
-  {
-    "object": {
       "des": "natrium",
       "dividers": false,
       "location": "Кипр",

@@ -12,24 +12,17 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
-public class OwnSerializer implements SerializerFactory{
+public class OwnSerializer implements AbstractSerializer {
 
-
-    public String serializeObject(Object o) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
-        //classNam.cast(0);
+    String serializeObject(Object o) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
         String resultString = "{";
         if (o == null) {
             resultString += "null};";
             return resultString;
         }
         resultString += o.getClass().getName() + ";";
-        //resultString.concat(o.getClass().toString());
-        //resultString.concat("};");
         ArrayList<Field> fieldList = new ArrayList<>();
         ArrayList<Method> mainMethodList = new ArrayList<>();
         Class i = o.getClass();
@@ -42,16 +35,11 @@ public class OwnSerializer implements SerializerFactory{
         for (Field objectField : fieldList) {
             resultString += objectField.getName() + ":";
             if(Composition.class.isAssignableFrom(objectField.getType())){
-                Class<?> compClass = objectField.getType();
-                Method getCompObject = o.getClass().getMethod("get" + objectField.getName());
-                Object compObject = getCompObject.invoke(o);//get comp obj-> res
-                compClass.cast(compObject);
-                resultString += serializeObject(compObject);
+                resultString += serializeInnerObject(objectField, o);
             } else {
                 for (Method objectMethod : mainMethodList) {
                     if (objectMethod.getName().equals("get" + objectField.getName())) {
-                        Method getValue = o.getClass().getMethod("get" + objectField.getName());
-                        String value = getValue.invoke(o).toString();
+                        String value = objectMethod.invoke(o).toString();
                         resultString += value + ";";
                     }
                 }
@@ -61,9 +49,17 @@ public class OwnSerializer implements SerializerFactory{
             return resultString;
         }
 
-        public Object deserializeObject(String objectInString) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        private String serializeInnerObject(Field compObjectField, Object mainObject) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+            Class<?> compClass = compObjectField.getType();
+            Method getCompObject = mainObject.getClass().getMethod("get" + compObjectField.getName());
+            Object compObject = getCompObject.invoke(mainObject);
+            compClass.cast(compObject);
+            return serializeObject(compObject);
+        }
+
+        Object deserializeObject(String objectInString) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException {
             int i = 1;
-            Object resultObject = null;
+            Object resultObject;
             String mainClassName = "";
             ArrayList<Method> methodList = new ArrayList<>();
             HashMap<String, String> mainObjFields = new HashMap<>();
@@ -116,24 +112,12 @@ public class OwnSerializer implements SerializerFactory{
                         i++;
                     }
                     i++;
-                    for (Method compObjectMethod : compMethodsList) {
-                        for (Map.Entry entry : objFields.entrySet()) {
-                            if (("set" + entry.getKey()).equals(compObjectMethod.getName())) {
-                                if(compObjectMethod.getParameterTypes()[0].equals(Boolean.class)) {
-                                    compObjectMethod.invoke(compObject, Boolean.valueOf((String)entry.getValue()));
-                                } else
-                                compObjectMethod.invoke(compObject, (String)entry.getValue());
-                            }
-                        }
-                    }
-
-
-                    //set comp obj to main obj
+                    setObjectFields(compMethodsList, objFields.entrySet(), compObject);
+                    //set inner object to main
                     for (Method mainObjMethod : methodList) {
                             if (mainObjMethod.getName().equals("set" + key)) {
                                 mainObjMethod.invoke(resultObject, compObject);
                             }
-
                     }
                 } else {
                     while(!(objectInString.charAt(i) == ';')) {
@@ -143,26 +127,25 @@ public class OwnSerializer implements SerializerFactory{
                     i++;
                     mainObjFields.put(key,value);
                 }
-                //i++;
             }
-            for (Method mainObjectMethod : methodList) {
-                for (Map.Entry entry : mainObjFields.entrySet()) {
-                    if (("set" + entry.getKey()).equals(mainObjectMethod.getName())) {
-                        //mainObjectMethod.invoke(resultObject, (String) entry.getValue());
-
-                        if (mainObjectMethod.getParameterTypes()[0].equals(Boolean.class)) {
-                            mainObjectMethod.invoke(resultObject, Boolean.valueOf((String) entry.getValue()));
-                        } else
-                            mainObjectMethod.invoke(resultObject, (String) entry.getValue());
-                    }
-                }
-            }
+            setObjectFields(methodList, mainObjFields.entrySet(), resultObject);
             return resultObject;
         }
 
+    private void setObjectFields(ArrayList<Method> methodList, Set<Map.Entry<String, String>> entrySet, Object resultObject) throws InvocationTargetException, IllegalAccessException {
+        for (Method mainObjectMethod : methodList) {
+            for (Map.Entry entry : entrySet) {
+                if (("set" + entry.getKey()).equals(mainObjectMethod.getName())) {
+                    if (mainObjectMethod.getParameterTypes()[0].equals(Boolean.class)) {
+                        mainObjectMethod.invoke(resultObject, Boolean.valueOf((String) entry.getValue()));
+                    } else
+                        mainObjectMethod.invoke(resultObject, (String) entry.getValue());
+                }
+            }
+        }
+    }
 
-
-    public Object createObject(String className) throws IllegalAccessException, InvocationTargetException, InstantiationException, ClassNotFoundException, NoSuchMethodException {
+    Object createObject(String className) throws IllegalAccessException, InvocationTargetException, InstantiationException, ClassNotFoundException, NoSuchMethodException {
         if(className == "null") {
             return null;
         }
@@ -173,21 +156,13 @@ public class OwnSerializer implements SerializerFactory{
         return newObject;
     }
 
-    void write(){
-
-    }
-
-    @Override
     public void serialize(ObservableList<Obj> objectList, File fileForSave) {
         try {
             FileWriter writer = new FileWriter(fileForSave, false);
             OwnSerializer own = new OwnSerializer();
             for(Obj o: objectList) {
                 try {
-                    String serObj = own.serializeObject(o.getObject());
-                    writer.write(serObj);
-                    writer.append("\r\n");
-                    writer.flush();
+                    writeObject(own, o, writer);
                 } catch (NoSuchMethodException e) {
                     e.printStackTrace();
                 } catch (InvocationTargetException e) {
@@ -201,7 +176,13 @@ public class OwnSerializer implements SerializerFactory{
         }
     }
 
-    @Override
+    private void writeObject(OwnSerializer own, Obj o, FileWriter writer) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException, IOException {
+        String serObj = own.serializeObject(o.getObject());
+        writer.write(serObj);
+        writer.append("\r\n");
+        writer.flush();
+    }
+
     public ObservableList<Obj> deserialize(File fileForOpen) {
         ObservableList<Obj> obj_list = FXCollections.observableArrayList();
         try{

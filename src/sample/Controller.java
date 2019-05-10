@@ -1,8 +1,5 @@
 package sample;
 
-import com.google.gson.*;
-import com.google.gson.internal.LinkedTreeMap;
-import com.google.gson.reflect.TypeToken;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -66,55 +63,47 @@ public class Controller {
     @FXML
     private Button openButton;
 
-    private SerializerFactory configureSerializer(String choosenFileName) {
-        SerializerFactory returnSerializer = null;
-        if(choosenFileName.endsWith(".ser")) {
+    @FXML
+    void open(ActionEvent event) {
+        obj_list.clear();
+        File chosenFile = showFileDialog();
+        if (chosenFile != null) {
+            AbstractSerializer chosenDeserializer = configureSerializer(chosenFile.getName());
+            obj_list = chosenDeserializer.deserialize(chosenFile);
+            obj_table.setItems(obj_list);
+        }
+    }
+
+
+    @FXML
+    void save(ActionEvent event) {        ;
+        File chosenFile = showFileDialog();
+        if (chosenFile != null) {
+            AbstractSerializer chosenSerializer = configureSerializer(chosenFile.getName());
+            chosenSerializer.serialize(obj_list, chosenFile);
+        }
+    }
+
+    private File showFileDialog() {
+        FileChooser chooser = new FileChooser();
+        FileChooser.ExtensionFilter fileExtensions = new FileChooser.ExtensionFilter("Bin, json, own", "*.ser", "*.json", "*.txt");
+        chooser.getExtensionFilters().add(fileExtensions);
+        File file = chooser.showOpenDialog(new Stage());
+        return file;
+    }
+
+    private AbstractSerializer configureSerializer(String chosenFileName) {
+        AbstractSerializer returnSerializer;
+        if(chosenFileName.endsWith(".ser")) {
             returnSerializer = new BinarySerializer();
-        } else if(choosenFileName.endsWith(".json")) {
+        } else if(chosenFileName.endsWith(".json")) {
             returnSerializer = new JSONSerializer();
-        } else if(choosenFileName.endsWith(".txt")) {
+        } else if(chosenFileName.endsWith(".txt")) {
             returnSerializer = new OwnSerializer();
         } else {
             throw new RuntimeException("Error file extension!");
         }
         return returnSerializer;
-    }
-
-    @FXML
-    void open(ActionEvent event) {
-        SerializerFactory choosenSerializer = null;
-        obj_list.clear();
-        FileChooser chooser = new FileChooser();
-        FileChooser.ExtensionFilter fileExtensions =
-                new FileChooser.ExtensionFilter(
-                        "Bin, json, own", "*.ser", "*.json", "*.txt");
-        chooser.getExtensionFilters().add(fileExtensions);
-        File file = chooser.showOpenDialog(new Stage());
-        System.out.println(file.getName());
-        if (file != null) {
-            choosenSerializer = configureSerializer(file.getName());
-            obj_list = choosenSerializer.deserialize(file);
-            obj_table.setItems(obj_list);
-        }
-
-    }
-
-
-    @FXML
-    void save(ActionEvent event) {
-        SerializerFactory choosenSerializer = null;
-        FileChooser chooser = new FileChooser();
-        FileChooser.ExtensionFilter fileExtensions =
-                new FileChooser.ExtensionFilter(
-                        "Bin, json, own", "*.ser", "*.json", "*.txt");
-        chooser.getExtensionFilters().add(fileExtensions);
-        File file = chooser.showOpenDialog(new Stage());
-        System.out.println(file.getName());
-        if (file != null) {
-            choosenSerializer = configureSerializer(file.getName());
-            choosenSerializer.serialize(obj_list, file);
-        }
-
     }
 
     @FXML

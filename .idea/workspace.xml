@@ -3,12 +3,19 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="add own ser-n">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Output.json" beforeDir="false" afterPath="$PROJECT_DIR$/Output.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LR2/sample/Serialization/BinarySerializer$1.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LR2/sample/Serialization/BinarySerializer$ClassTypeAd.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/LR2/sample/Serialization/BinarySerializer$ClassTypeAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LR2/sample/Serialization/OwnSerializer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LR2/sample/Serialization/OwnSerializer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LR2/sample/Serialization/OwnSerializerTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LR2/sample/Serialization/OwnSerializerTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LR2/sample/Serialization/my_des.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/LR2/sample/TextFieldNew.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/LR2/sample/TextFieldNew.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Serialization/OwnSerializer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Serialization/OwnSerializer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Serialization/OwnSerializerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Serialization/OwnSerializerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Serialization/my_des.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/TextFieldNew.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/TextFieldNew.java" afterDir="false" />
     </list>
     <ignored path="JavaFxApplication.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -21,6 +28,20 @@
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="DebuggerManager">
     <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true" converted="true">
@@ -166,25 +187,25 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5568" />
+          <entry key="java" value="7433" />
           <entry key="txt" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5568" />
+          <entry key="JAVA" value="7433" />
           <entry key="PLAIN_TEXT" value="40" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="fxml" value="1" />
-          <entry key="java" value="30" />
+          <entry key="java" value="32" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="30" />
+          <entry key="JAVA" value="32" />
           <entry key="XML" value="1" />
         </counts>
       </usages-collector>
@@ -195,23 +216,14 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1527">
-              <caret line="117" column="5" lean-forward="true" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
+            <state relative-caret-position="438">
+              <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/buildings/track.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="29" column="20" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="20" />
             </state>
           </provider>
         </entry>
@@ -240,8 +252,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Serialization/OwnSerializerTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
+            <state relative-caret-position="1275">
+              <caret line="75" column="98" lean-forward="true" selection-start-line="75" selection-start-column="98" selection-end-line="75" selection-end-column="98" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -252,8 +264,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Serialization/BinarySerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="30" column="93" selection-start-line="30" selection-start-column="93" selection-end-line="30" selection-end-column="93" />
+            <state relative-caret-position="136">
+              <caret line="8" column="61" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -264,8 +276,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/sample/Serialization/JSONSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+            <state relative-caret-position="166">
+              <caret line="64" column="77" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="77" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -273,11 +285,20 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/sample/Serialization/OwnSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="867">
-              <caret line="217" column="40" lean-forward="true" selection-start-line="217" selection-start-column="40" selection-end-line="217" selection-end-column="40" />
+            <state relative-caret-position="136">
+              <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/sample/TextFieldNew.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="121">
+              <caret line="11" column="87" selection-start-line="11" selection-start-column="87" selection-end-line="11" selection-end-column="87" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -286,10 +307,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/sample/Serialization/SerializerFactory.java">
+        <entry file="file://$PROJECT_DIR$/src/sample/Serialization/AbstractSerializer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+            <state relative-caret-position="119">
+              <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -343,7 +364,6 @@
         <option value="$PROJECT_DIR$/src/sample/CheckBoxNew.java" />
         <option value="$PROJECT_DIR$/src/sample/Control.java" />
         <option value="$PROJECT_DIR$/src/sample/LabelNew.java" />
-        <option value="$PROJECT_DIR$/src/sample/TextFieldNew.java" />
         <option value="$PROJECT_DIR$/src/sample/ChoiceBoxNew.java" />
         <option value="$PROJECT_DIR$/src/sample/buildings/football_stadium.java" />
         <option value="$PROJECT_DIR$/src/sample/buildings/laser_shoot.java" />
@@ -360,12 +380,14 @@
         <option value="$PROJECT_DIR$/src/sample/buildings/track.java" />
         <option value="$PROJECT_DIR$/src/sample/Obj.java" />
         <option value="$PROJECT_DIR$/src/sample/Serialization/my_des.java" />
-        <option value="$PROJECT_DIR$/src/sample/Serialization/OwnSerializerTest.java" />
         <option value="$PROJECT_DIR$/src/sample/Serialization/SerializerFactory.java" />
+        <option value="$PROJECT_DIR$/src/sample/Serialization/AbstractSerializer.java" />
+        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
         <option value="$PROJECT_DIR$/src/sample/Serialization/BinarySerializer.java" />
         <option value="$PROJECT_DIR$/src/sample/Serialization/JSONSerializer.java" />
+        <option value="$PROJECT_DIR$/src/sample/TextFieldNew.java" />
         <option value="$PROJECT_DIR$/src/sample/Serialization/OwnSerializer.java" />
-        <option value="$PROJECT_DIR$/src/sample/Controller.java" />
+        <option value="$PROJECT_DIR$/src/sample/Serialization/OwnSerializerTest.java" />
       </list>
     </option>
   </component>
@@ -375,7 +397,13 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand />
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1386" />
@@ -457,7 +485,7 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557327421388" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1557470644444" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="create.test.in.the.same.root" value="true" />
@@ -529,7 +557,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OwnSerializerTest.serialize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OwnSerializerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LR2" />
       <extension name="coverage">
         <pattern>
@@ -539,7 +567,25 @@
       </extension>
       <option name="PACKAGE_NAME" value="sample.Serialization" />
       <option name="MAIN_CLASS_NAME" value="sample.Serialization.OwnSerializerTest" />
-      <option name="METHOD_NAME" value="serialize" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="moduleWithDependencies" />
+      </option>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OwnSerializerTest.testCreateObject" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="LR2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="sample.Serialization.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="sample.Serialization" />
+      <option name="MAIN_CLASS_NAME" value="sample.Serialization.OwnSerializerTest" />
+      <option name="METHOD_NAME" value="testCreateObject" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
@@ -549,7 +595,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OwnSerializerTest.testDeserialize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OwnSerializerTest.testSerializeObjectForClass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LR2" />
       <extension name="coverage">
         <pattern>
@@ -559,7 +605,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="sample.Serialization" />
       <option name="MAIN_CLASS_NAME" value="sample.Serialization.OwnSerializerTest" />
-      <option name="METHOD_NAME" value="testDeserialize" />
+      <option name="METHOD_NAME" value="testSerializeObjectForClass" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
@@ -569,7 +615,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OwnSerializerTest.testSerialize" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OwnSerializerTest.testSerializeObjectForNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LR2" />
       <extension name="coverage">
         <pattern>
@@ -579,7 +625,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="sample.Serialization" />
       <option name="MAIN_CLASS_NAME" value="sample.Serialization.OwnSerializerTest" />
-      <option name="METHOD_NAME" value="testSerialize" />
+      <option name="METHOD_NAME" value="testSerializeObjectForNull" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
@@ -589,7 +635,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OwnSerializerTest.testSerializeForObjectClass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OwnSerializerTest.testSerializeObjectForObjectClass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="LR2" />
       <extension name="coverage">
         <pattern>
@@ -599,7 +645,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="sample.Serialization" />
       <option name="MAIN_CLASS_NAME" value="sample.Serialization.OwnSerializerTest" />
-      <option name="METHOD_NAME" value="testSerializeForObjectClass" />
+      <option name="METHOD_NAME" value="testSerializeObjectForObjectClass" />
       <option name="TEST_OBJECT" value="method" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="TEST_SEARCH_SCOPE">
@@ -640,17 +686,19 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.OwnSerializerTest.serialize" />
-      <item itemvalue="JUnit.OwnSerializerTest.testSerialize" />
-      <item itemvalue="JUnit.OwnSerializerTest.testSerializeForObjectClass" />
-      <item itemvalue="JUnit.OwnSerializerTest.testDeserialize" />
+      <item itemvalue="JUnit.OwnSerializerTest.testSerializeObjectForNull" />
+      <item itemvalue="JUnit.OwnSerializerTest.testSerializeObjectForObjectClass" />
+      <item itemvalue="JUnit.OwnSerializerTest" />
+      <item itemvalue="JUnit.OwnSerializerTest.testCreateObject" />
+      <item itemvalue="JUnit.OwnSerializerTest.testSerializeObjectForClass" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OwnSerializerTest.testDeserialize" />
-        <item itemvalue="JUnit.OwnSerializerTest.testSerializeForObjectClass" />
-        <item itemvalue="JUnit.OwnSerializerTest.testSerialize" />
-        <item itemvalue="JUnit.OwnSerializerTest.serialize" />
+        <item itemvalue="JUnit.OwnSerializerTest" />
+        <item itemvalue="JUnit.OwnSerializerTest.testSerializeObjectForClass" />
+        <item itemvalue="JUnit.OwnSerializerTest.testSerializeObjectForObjectClass" />
+        <item itemvalue="JUnit.OwnSerializerTest.testCreateObject" />
+        <item itemvalue="JUnit.OwnSerializerTest.testSerializeObjectForNull" />
       </list>
     </recent_temporary>
   </component>
@@ -675,7 +723,7 @@
       <workItem from="1555250878491" duration="53294000" />
       <workItem from="1556649398024" duration="11840000" />
       <workItem from="1556697205339" duration="82803000" />
-      <workItem from="1557296361715" duration="13569000" />
+      <workItem from="1557296361715" duration="30462000" />
     </task>
     <task id="LOCAL-00001" summary="add binary+JSON ser/deser-n">
       <created>1557060253452</created>
@@ -702,39 +750,39 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="OwnSerializerTest_testDeserialize - 2019.05.07 at 19h 04m 05s.xml">
-      <configuration name="OwnSerializerTest.testDeserialize" configurationId="JUnit" />
+    <history-entry file="OwnSerializerTest_testSerializeObjectForObjectClass - 2019.05.09 at 19h 47m 44s.xml">
+      <configuration name="OwnSerializerTest.testSerializeObjectForObjectClass" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OwnSerializerTest_testDeserialize - 2019.05.07 at 19h 05m 00s.xml">
-      <configuration name="OwnSerializerTest.testDeserialize" configurationId="JUnit" />
+    <history-entry file="OwnSerializerTest_testCreateObject - 2019.05.09 at 19h 52m 38s.xml">
+      <configuration name="OwnSerializerTest.testCreateObject" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OwnSerializerTest_testDeserialize - 2019.05.07 at 19h 11m 01s.xml">
-      <configuration name="OwnSerializerTest.testDeserialize" configurationId="JUnit" />
+    <history-entry file="OwnSerializerTest - 2019.05.09 at 19h 53m 13s.xml">
+      <configuration name="OwnSerializerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OwnSerializerTest_testDeserialize - 2019.05.07 at 19h 12m 21s.xml">
-      <configuration name="OwnSerializerTest.testDeserialize" configurationId="JUnit" />
+    <history-entry file="OwnSerializerTest - 2019.05.09 at 20h 01m 55s.xml">
+      <configuration name="OwnSerializerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OwnSerializerTest_testDeserialize - 2019.05.07 at 19h 23m 32s.xml">
-      <configuration name="OwnSerializerTest.testDeserialize" configurationId="JUnit" />
+    <history-entry file="OwnSerializerTest_testSerializeObjectForObjectClass - 2019.05.09 at 20h 15m 49s.xml">
+      <configuration name="OwnSerializerTest.testSerializeObjectForObjectClass" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OwnSerializerTest_testDeserialize - 2019.05.07 at 19h 24m 20s.xml">
-      <configuration name="OwnSerializerTest.testDeserialize" configurationId="JUnit" />
+    <history-entry file="OwnSerializerTest_testSerializeObjectForObjectClass - 2019.05.09 at 20h 27m 00s.xml">
+      <configuration name="OwnSerializerTest.testSerializeObjectForObjectClass" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OwnSerializerTest_testDeserialize - 2019.05.07 at 19h 26m 25s.xml">
-      <configuration name="OwnSerializerTest.testDeserialize" configurationId="JUnit" />
+    <history-entry file="OwnSerializerTest_testSerializeObjectForObjectClass - 2019.05.09 at 20h 29m 11s.xml">
+      <configuration name="OwnSerializerTest.testSerializeObjectForObjectClass" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OwnSerializerTest_testDeserialize - 2019.05.07 at 19h 27m 46s.xml">
-      <configuration name="OwnSerializerTest.testDeserialize" configurationId="JUnit" />
+    <history-entry file="OwnSerializerTest_testSerializeObjectForClass - 2019.05.10 at 09h 42m 19s.xml">
+      <configuration name="OwnSerializerTest.testSerializeObjectForClass" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OwnSerializerTest_testDeserialize - 2019.05.07 at 19h 27m 54s.xml">
-      <configuration name="OwnSerializerTest.testDeserialize" configurationId="JUnit" />
+    <history-entry file="OwnSerializerTest - 2019.05.10 at 09h 42m 29s.xml">
+      <configuration name="OwnSerializerTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="OwnSerializerTest_testDeserialize - 2019.05.07 at 19h 28m 56s.xml">
-      <configuration name="OwnSerializerTest.testDeserialize" configurationId="JUnit" />
+    <history-entry file="OwnSerializerTest - 2019.05.10 at 09h 42m 59s.xml">
+      <configuration name="OwnSerializerTest" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="378351000" />
+    <option name="totallyTimeSpent" value="395244000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -749,7 +797,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18154311" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6703755" visible="true" weight="0.18154311" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" />
       <window_info id="Designer" order="3" />
@@ -759,7 +807,7 @@
       <window_info anchor="bottom" id="Inspection Results" order="0" weight="0.32874617" />
       <window_info anchor="bottom" id="Message" order="1" />
       <window_info anchor="bottom" id="Find" order="2" visible="true" weight="0.3262295" />
-      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.31311476" />
+      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.18852459" />
       <window_info anchor="bottom" id="Debug" order="4" weight="0.39836067" />
       <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
@@ -774,12 +822,12 @@
       <window_info anchor="bottom" id="Database Changes" order="15" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" order="16" weight="0.3295082" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.24962178" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24962178" />
       <window_info anchor="right" id="JetGradle" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32980332" />
       <window_info anchor="right" id="Palette" order="5" />
-      <window_info anchor="right" id="Maven Projects" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="6" weight="0.32980332" />
       <window_info anchor="right" id="Capture Analysis" order="7" />
       <window_info anchor="right" id="Palette&#9;" order="8" />
       <window_info anchor="right" id="Theme Preview" order="9" />
@@ -891,16 +939,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/TextFieldNew.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="60" selection-start-line="60" selection-end-line="60" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/ChoiceBoxNew.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -942,13 +980,6 @@
             <element signature="e#874#875#0" expanded="true" />
             <element signature="e#906#907#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Serialization/my_des.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="28">
-          <caret line="6" column="25" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1054,50 +1085,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Serialization/OwnSerializerTest.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Serialization/AbstractSerializer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="64" column="10" selection-start-line="64" selection-start-column="10" selection-end-line="64" selection-end-column="10" />
+        <state relative-caret-position="119">
+          <caret line="7" column="35" selection-start-line="7" selection-start-column="35" selection-end-line="7" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Serialization/SerializerFactory.java">
+    <entry file="file://$PROJECT_DIR$/src/sample/Serialization/my_des.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Serialization/BinarySerializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="30" column="93" selection-start-line="30" selection-start-column="93" selection-end-line="30" selection-end-column="93" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Serialization/JSONSerializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/sample/Serialization/OwnSerializer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="867">
-          <caret line="217" column="40" lean-forward="true" selection-start-line="217" selection-start-column="40" selection-end-line="217" selection-end-column="40" />
+        <state relative-caret-position="255">
+          <caret line="18" column="5" lean-forward="true" selection-start-line="18" selection-start-column="5" selection-end-line="18" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1106,11 +1107,58 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/sample/Controller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1527">
-          <caret line="117" column="5" lean-forward="true" selection-start-line="117" selection-start-column="5" selection-end-line="117" selection-end-column="5" />
+        <state relative-caret-position="438">
+          <caret line="85" lean-forward="true" selection-start-line="85" selection-end-line="85" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Serialization/JSONSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="64" column="77" selection-start-line="64" selection-start-column="47" selection-end-line="64" selection-end-column="77" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Serialization/BinarySerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="61" selection-start-line="8" selection-start-column="61" selection-end-line="8" selection-end-column="61" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/TextFieldNew.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="121">
+          <caret line="11" column="87" selection-start-line="11" selection-start-column="87" selection-end-line="11" selection-end-column="87" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Serialization/OwnSerializerTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1275">
+          <caret line="75" column="98" lean-forward="true" selection-start-line="75" selection-start-column="98" selection-end-line="75" selection-end-column="98" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/sample/Serialization/OwnSerializer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" lean-forward="true" selection-start-line="8" selection-end-line="8" />
         </state>
       </provider>
     </entry>

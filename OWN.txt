@@ -1,2 +1,3 @@
 {sample.buildings.football_stadium;name:Лужники;light_type:synthetic;fl_amount:10;capacity:200000;location:Россия, Москва;parking:100000;vip:false;pl_gate:{sample.buildings.gate;mobility:true;width:100.0;height:50.0;}pl_field:{sample.buildings.field;fence:true;gr_type:natural;}team:Спартак;}
+{sample.buildings.athlete_stadium;name:Стад де Франс;light_type:natural;fl_amount:5;capacity:200000;location:Сен-Дени;pit:true;track_sector:{sample.buildings.track;tr_length:100.0;amount:greater_five;}}
 {sample.buildings.pool;name:Four Seasons;light_type:synthetic;fl_amount:8;capacity:20000;location:Кипр;dividers:false;des:natrium;}

@@ -6,28 +6,35 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BinarySerializer implements AbstractSerializer {
+public class BinarySerializer implements SerializerFactory{
 
+    @Override
     public void serialize(ObservableList<Obj> objectList, File fileForSave) {
         try {
+            // write object to file
             FileOutputStream fos = new FileOutputStream(fileForSave);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
             oos.writeObject(new ArrayList<>(objectList));
             oos.close();
+
         } catch (FileNotFoundException e) {
-            System.out.println("Не удалось найти файл для записи!");
+            e.printStackTrace();
         } catch (IOException e) {
-            System.out.println("Не удалось сериализовать данные!");
+            e.printStackTrace();
         }
     }
 
+    @Override
     public ObservableList<Obj> deserialize(File fileForOpen) {
-        List<Obj> loadedObjects = new ArrayList<>();
+
+        List<Obj> loadedEdges = new ArrayList<>();
             try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileForOpen))) {
-                loadedObjects = (List<Obj>) in.readObject() ;
+                loadedEdges = (List<Obj>) in.readObject() ;
+                //obj_list.setAll(loadedEdges);
             } catch (Exception exc) {
                 exc.printStackTrace();
             }
-        return FXCollections.observableList(loadedObjects);
+
+        return FXCollections.observableList(loadedEdges);
     }
 }

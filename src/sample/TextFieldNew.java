@@ -9,12 +9,6 @@ public class TextFieldNew extends TextField implements Control{
     public TextFieldNew(String prompt, String type) {
         super(prompt);
         this.type = type;
-        //this listener is used for deleting ":", which can break deserialization after
-        super.textProperty().addListener((observable, oldValue, newValue) -> {
-            if(newValue.endsWith(":")) {
-                super.setText(oldValue);
-            }
-        });
     }
 
     public TextFieldNew(int prompt, String type) {

@@ -10,8 +10,7 @@ import sample.buildings.sport_fac;
 import java.io.*;
 import java.lang.reflect.Type;
 
-public class JSONSerializer implements AbstractSerializer {
-
+public class JSONSerializer implements SerializerFactory{
     public void serialize(ObservableList<Obj> objectList, File fileForSave) {
         try (Writer writer = new FileWriter(fileForSave)) {
             Gson gson = new GsonBuilder()
@@ -21,11 +20,11 @@ public class JSONSerializer implements AbstractSerializer {
 
             gson.toJson(objectList, writer);
         } catch (IOException e) {
-            System.out.println("Не удалось сериализовать объекты!");
+            System.out.println("Can't create json");
         }
     }
 
-    private static class ClassTypeAdapter implements JsonSerializer<Class<?>>, JsonDeserializer<Class<?>> {
+    public static class ClassTypeAdapter implements JsonSerializer<Class<?>>, JsonDeserializer<Class<?>> {
 
         @Override
         public JsonElement serialize(Class<?> src, Type typeOfSrc, JsonSerializationContext context) {
@@ -33,22 +32,24 @@ public class JSONSerializer implements AbstractSerializer {
         }
 
         @Override
-        public Class<?> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
+        public Class<?> deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context)
+                throws JsonParseException {
             try {
                 return Class.forName(json.getAsString());
             } catch (ClassNotFoundException e) {
-                throw new RuntimeException("Не удалось обнаружить класс десериализуемого объекта!");
+                throw new RuntimeException(e);
             }
         }
+
     }
 
     public ObservableList<Obj> deserialize(File fileForOpen) {
-        ObservableList<Obj> objList = FXCollections.observableArrayList();
+        ObservableList<Obj> obj_list = FXCollections.observableArrayList();
         BufferedReader bufferedReader = null;
         try {
             bufferedReader = new BufferedReader(new FileReader(fileForOpen));
         } catch (FileNotFoundException e) {
-            System.out.println("Не удалось найти файд!");
+            System.out.println("Not file here!");
         }
         Gson gson = new GsonBuilder()
                 .registerTypeAdapter(Class.class, new ClassTypeAdapter())
@@ -58,24 +59,22 @@ public class JSONSerializer implements AbstractSerializer {
         JsonParser parser = new JsonParser();
         JsonElement jsonElement = parser.parse(bufferedReader);
         JsonArray arr = jsonElement.getAsJsonArray();
-        parseJSONArray(objList, arr, gson);
-        return objList;
-    }
-
-    private ObservableList<Obj> parseJSONArray(ObservableList<Obj> objectList, JsonArray arrayForParse, Gson gson) {
-        arrayForParse.forEach(item -> {
+        arr.forEach(item -> {
             JsonObject obj = (JsonObject) item;
-            JsonObject jsonObject = obj.get("object").getAsJsonObject();
-            String className = obj.get("cl_name").getAsString();
+            JsonObject quoteid = obj.get("object").getAsJsonObject();
+
+            String dateEntered = obj.get("cl_name").getAsString();
             try {
-                Class<?> cl = Class.forName(className);
-                Object newObject = gson.fromJson(jsonObject, cl);
-                Obj o = new Obj(((sport_fac) newObject).getname(), newObject.getClass().getAnnotation(RusName.class).r_name(), newObject, newObject.getClass());
-                objectList.add(o);
+                Class<?> cl = Class.forName(dateEntered);
+                Object message = gson.fromJson(quoteid, cl);
+                System.out.println(message.getClass());
+                Obj o = new Obj(((sport_fac) message).getname(), message.getClass().getAnnotation(RusName.class).r_name(), message, message.getClass());
+                obj_list.add(o);
             } catch (ClassNotFoundException e) {
-                System.out.println("Не удалось обнаружить класс при десериализации!");
+                System.out.println("Cant found classss");
             }
+
         });
-        return objectList;
+        return obj_list;
     }
 }

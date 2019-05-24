@@ -1,0 +1,40 @@
+[
+  {
+    "object": {
+      "team": "Спартак",
+      "pl_field": {
+        "gr_type": "natural",
+        "fence": true
+      },
+      "pl_gate": {
+        "height": 50.0,
+        "width": 100.0,
+        "mobility": true
+      },
+      "vip": false,
+      "parking": 100000,
+      "location": "Россия, Москва",
+      "capacity": 200000,
+      "fl_amount": 10,
+      "light_type": "synthetic",
+      "name": "Лужники"
+    },
+    "cl_name": "sample.buildings.football_stadium",
+    "name": "Лужники",
+    "class_name": "Футбольный стадион"
+  },
+  {
+    "object": {
+      "des": "natrium",
+      "dividers": false,
+      "location": "Кипр",
+      "capacity": 20000,
+      "fl_amount": 8,
+      "light_type": "synthetic",
+      "name": "Four Seasons"
+    },
+    "cl_name": "sample.buildings.pool",
+    "name": "Four Seasons",
+    "class_name": "Бассейн"
+  }
+]

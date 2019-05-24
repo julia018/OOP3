@@ -1,0 +1,11 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="ZIP:jar">
+    <output-path>$PROJECT_DIR$/OOP3-master/out/artifacts/ZIP_jar</output-path>
+    <root id="archive" name="ZIP.jar">
+      <element id="module-output" name="ZIP" />
+      <element id="module-output" name="initial" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/OOP3-master/jars/junit-4.12.jar" path-in-jar="/" />
+      <element id="extracted-dir" path="$PROJECT_DIR$/OOP3-master/jars/gson-2.8.5.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

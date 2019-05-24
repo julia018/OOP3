@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LR2.iml" filepath="$PROJECT_DIR$/LR2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GZIP/GZIP.iml" filepath="$PROJECT_DIR$/GZIP/GZIP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/JAR/JAR.iml" filepath="$PROJECT_DIR$/JAR/JAR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ZIP/ZIP.iml" filepath="$PROJECT_DIR$/ZIP/ZIP.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/initial.iml" filepath="$PROJECT_DIR$/.idea/initial.iml" />
     </modules>
   </component>
 </project>
